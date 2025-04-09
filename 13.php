@@ -7,42 +7,65 @@
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
- <form action="" method="post" enctype="multipart/form-data">
-  <label for="minu_fail">Vali fail:</label>
-  <input type="file" id="minu_fail" name="minu_fail" class="form-control mb-2">
-  <button type="submit" class="btn btn-primary">Laadi üles</button>
- </form>
-
  <?php
  // h13
  // Ott Tammik
  // 05.04.2025
+ if(!empty($_FILES['minu_fail']['name'])){
+  $sinu_faili_nimi = $_FILES['minu_fail']['name'];
+  $ajutine_fail = $_FILES['minu_fail']['tmp_name'];
+  $faili_tyyp = $_FILES['minu_fail']['type'];
 
- if (isset($_FILES['minu_fail'])) {
-  $failinimi = $_FILES['minu_fail']['name'];
-  $faili_tuup = $_FILES['minu_fail']['type'];
-  $faili_ajutine_nimi = $_FILES['minu_fail']['tmp_name'];
-  $faili_veakood = $_FILES['minu_fail']['error'];
-  $lubatud_tuubid = ['image/jpeg', 'image/jpg'];
+  if (in_array($faili_tyyp, ['image/jpeg', 'image/pjpeg'])) {
+   $kataloog = 'php13_pildid';
 
-  if (in_array($faili_tuup, $lubatud_tuubid)) {
-   if ($faili_veakood === 0) {
-    $faili_nimi = uniqid('', true) . '.' . pathinfo($failinimi, PATHINFO_EXTENSION);
-    $faili_sihtkoht = 'img/' . $faili_nimi;
-    if (move_uploaded_file($faili_ajutine_nimi, $faili_sihtkoht)) {
-     echo '<div class="alert alert-success">Faili üleslaadimine õnnestus!</div>';
-     echo '<a href="' . $faili_sihtkoht . '"><img src="' . $faili_sihtkoht . '" class="img-fluid mt-3" alt="Üleslaetud fail"></a>';
-    } else {
-     echo '<div class="alert alert-danger">Faili liigutamine ebaõnnestus!</div>';
-    }
+   if (!is_dir($kataloog)) {
+    mkdir($kataloog, 0777, true);
+   }
+
+   if(move_uploaded_file($ajutine_fail, $kataloog.'/'.$sinu_faili_nimi)){
+    echo '<div class="alert alert-success">Faili üleslaadimine oli edukas</div>';
    } else {
-    echo '<div class="alert alert-danger">Tekkis viga faili üleslaadimisel!</div>';
+    echo '<div class="alert alert-danger">Faili üleslaadimine ebaõnnestus</div>';
    }
   } else {
-   echo '<div class="alert alert-warning">Vale failitüüp! Lubatud on ainult JPEG failid.</div>';
+   echo '<div class="alert alert-warning">Ainult JPG ja JPEG failid on lubatud!</div>';
   }
  }
  ?>
+
+ <form action="" method="post" enctype="multipart/form-data">
+  <input type="file" name="minu_fail" accept="image/jpeg, image/jpg"><br>
+  <input type="submit" value="Lae üles!">
+ </form>
+
+ <h2>Üleslaetud pildid</h2>
+ <form method="post" action="">
+  <select name="pildid">
+   <option value="">Vali pilt</option>
+   <?php 
+    $kataloog = 'php13_pildid';
+    $asukoht = opendir($kataloog);
+
+    while ($rida = readdir($asukoht)) {
+     if ($rida != '.' && $rida != '..') {
+      echo "<option value='$rida'>$rida</option>\n";
+     }
+    }
+    closedir($asukoht);
+   ?>
+  </select>
+  <input type="submit" value="Vaata">
+ </form>
+
+ <?php
+ if(!empty($_POST['pildid'])){
+  $pilt = $_POST['pildid'];
+  $pildi_aadress = 'php13_pildid/'.$pilt;
+  echo "<img width='800px' src='$pildi_aadress'><br>";
+ }
+ ?>
+
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
