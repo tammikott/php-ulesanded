@@ -10,7 +10,7 @@
  <?php
  // h07
  // Ott Tammik
- // 03.03.2025
+ // 05.04.2025
 
  echo "<h2>Tervitus</h2>";
  function tervita() {

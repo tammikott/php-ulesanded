@@ -19,7 +19,7 @@
  <?php
  // h010
  // Ott Tammik
- // 28.03.2025
+ // 05.04.2025
 
  if (!empty($_GET['leht'])) {
   $leht = htmlspecialchars($_GET['leht']);

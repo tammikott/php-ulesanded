@@ -10,7 +10,7 @@
  <?php
  // h05
  // Ott Tammik
- // 14.02.2025
+ // 05.04.2025
 
  echo "<h2>Masiiv:</h2>";
  $nimed = ['mari', 'kati', 'juhan', 'miku', 'uku', 'miiu', 'lote'];

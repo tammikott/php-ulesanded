@@ -10,7 +10,7 @@
  <?php
  // h08
  // Ott Tammik
- // 06.03.2025
+ // 05.04.2025
 
  echo "<h2>Kuupäev ja kellaaeg:</h2>";
  echo date('d.m.Y G:i', time()) . "<br>";

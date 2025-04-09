@@ -10,7 +10,7 @@
  <?php
  // h14
  // Ott Tammik
- // 31.03.2025
+ // 05.04.2025
 
  $imagedir = 'img/';
 

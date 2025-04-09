@@ -10,7 +10,7 @@
  <?php
  // h06
  // Ott Tammik
- // 14.02.2025
+ // 05.04.2025
 
  echo "<h2>Genereeri</h2>";
  for ($i = 1; $i <= 100; $i++) {

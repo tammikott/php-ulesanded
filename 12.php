@@ -18,7 +18,7 @@
  <?php
  // h12
  // Ott Tammik
- // 29.03.2025
+ // 05.04.2025
 
  if (isset($_GET['algus'], $_GET['lopp'])) {
   $algus_aeg = $_GET['algus'];
