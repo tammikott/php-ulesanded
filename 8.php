@@ -9,7 +9,7 @@
 <body>
  <?php
  // h08
- // Mattias Elmers
+ // Ott Tammik
  // 06.03.2025
 
  echo "<h2>Kuupäev ja kellaaeg:</h2>";

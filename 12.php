@@ -17,7 +17,7 @@
 
  <?php
  // h12
- // Mattias Elmers
+ // Ott Tammik
  // 29.03.2025
 
  if (isset($_GET['algus'], $_GET['lopp'])) {

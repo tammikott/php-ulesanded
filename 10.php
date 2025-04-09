@@ -18,7 +18,7 @@
 
  <?php
  // h010
- // Mattias Elmers
+ // Ott Tammik
  // 28.03.2025
 
  if (!empty($_GET['leht'])) {

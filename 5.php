@@ -9,7 +9,7 @@
 <body>
  <?php
  // h05
- // Mattias Elmers
+ // Ott Tammik
  // 14.02.2025
 
  echo "<h2>Masiiv:</h2>";

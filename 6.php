@@ -9,7 +9,7 @@
 <body>
  <?php
  // h06
- // Mattias Elmers
+ // Ott Tammik
  // 14.02.2025
 
  echo "<h2>Genereeri</h2>";

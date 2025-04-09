@@ -9,7 +9,7 @@
 <body>
  <?php
  // h14
- // Mattias Elmers
+ // Ott Tammik
  // 31.03.2025
 
  $imagedir = 'img/';

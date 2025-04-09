@@ -9,7 +9,7 @@
 <body>
  <?php
  // h07
- // Mattias Elmers
+ // Ott Tammik
  // 03.03.2025
 
  echo "<h2>Tervitus</h2>";

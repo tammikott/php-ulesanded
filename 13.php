@@ -15,7 +15,7 @@
 
  <?php
  // h13
- // Mattias Elmers
+ // Ott Tammik
  // 31.03.2025
 
  if (isset($_FILES['minu_fail'])) {
